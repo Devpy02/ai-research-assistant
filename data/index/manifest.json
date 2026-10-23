@@ -1,0 +1,25 @@
+{
+  "chunk_count": 4,
+  "chunking": {
+    "chunk_size": 25,
+    "method": "whitespace_token_window",
+    "offset_convention": "start_inclusive_end_exclusive",
+    "offset_unit": "unicode_character",
+    "overlap": 5
+  },
+  "chunks_file": "chunks.jsonl",
+  "chunks_sha256": "fe307dc39160c34ffc174bebb01260f709fb08745be794e923531e785449e406",
+  "document_count": 1,
+  "documents": [
+    {
+      "char_count": 574,
+      "chunk_count": 4,
+      "content_sha256": "5640c850f1d77b4b13b523e74d01490a23e767511b19145f9cf2c613b571e759",
+      "document_id": "doc_f278e8ed0b4eeea62e89",
+      "filename": "documentacion_demo.md",
+      "source_path": "documentacion_demo.md"
+    }
+  ],
+  "schema_version": 1,
+  "storage_format": "jsonl"
+}
