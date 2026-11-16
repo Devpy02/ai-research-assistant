@@ -1,0 +1,335 @@
+{
+  "dataset_name": "Evidence Validation Evaluation Dataset",
+  "version": "1.0",
+  "description": "Conjunto de 24 casos para evaluar la suficiencia, ambigüedad, parcialidad y contradicción de la evidencia recuperada.",
+  "cases": [
+    {
+      "id": "E01",
+      "category": "sufficient",
+      "query": "¿Qué endpoint permite generar texto con Ollama?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "e01_c1",
+          "text": "El servidor Ollama expone el endpoint /api/generate para recibir solicitudes de generación de texto."
+        }
+      ],
+      "expected_status": "sufficient",
+      "rationale": "El fragmento identifica explícitamente el endpoint de generación."
+    },
+    {
+      "id": "E02",
+      "category": "sufficient",
+      "query": "¿Qué modelo se utiliza para generar embeddings?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "e02_c1",
+          "text": "El sistema utiliza el modelo nomic-embed-text para generar representaciones vectoriales de los textos."
+        }
+      ],
+      "expected_status": "sufficient",
+      "rationale": "El modelo utilizado está identificado explícitamente."
+    },
+    {
+      "id": "E03",
+      "category": "sufficient",
+      "query": "¿Qué dimensión tienen los embeddings generados?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "e03_c1",
+          "text": "El modelo de embeddings genera vectores de 768 dimensiones."
+        }
+      ],
+      "expected_status": "sufficient",
+      "rationale": "La dimensión está indicada directamente."
+    },
+    {
+      "id": "E04",
+      "category": "sufficient",
+      "query": "¿En qué formato se almacenan los fragmentos?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "e04_c1",
+          "text": "Los fragmentos documentales se almacenan en archivos JSONL, con un registro por línea."
+        }
+      ],
+      "expected_status": "sufficient",
+      "rationale": "El formato de almacenamiento está especificado."
+    },
+    {
+      "id": "I01",
+      "category": "insufficient",
+      "query": "¿Cuál es el límite de solicitudes por minuto de Ollama?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "i01_c1",
+          "text": "Ollama expone los endpoints /api/generate y /api/embed para generación de texto y creación de embeddings."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "Los fragmentos no especifican límites de solicitudes."
+    },
+    {
+      "id": "I02",
+      "category": "insufficient",
+      "query": "¿Qué versiones de Windows son compatibles con el sistema?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "i02_c1",
+          "text": "La aplicación puede ejecutarse localmente y utiliza Python para procesar documentos técnicos."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "No se mencionan versiones compatibles de Windows."
+    },
+    {
+      "id": "I03",
+      "category": "insufficient",
+      "query": "¿Cuál es el tamaño máximo permitido para un documento?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "i03_c1",
+          "text": "El sistema procesa documentos de texto y los divide en fragmentos de tamaño configurable."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "El tamaño de los fragmentos no determina el tamaño máximo del documento."
+    },
+    {
+      "id": "I04",
+      "category": "insufficient",
+      "query": "¿Qué mecanismo de autenticación utiliza la API?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "i04_c1",
+          "text": "La API local permite enviar solicitudes HTTP a los endpoints de Ollama."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "No se describe ningún mecanismo de autenticación."
+    },
+    {
+      "id": "A01",
+      "category": "ambiguous",
+      "query": "¿Qué modelo utiliza el sistema?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "a01_c1",
+          "text": "Qwen 2.5 1.5B se utiliza para generar respuestas. Nomic Embed Text se utiliza para generar embeddings."
+        }
+      ],
+      "expected_status": "ambiguous",
+      "rationale": "Hay dos modelos y la pregunta no especifica a cuál componente se refiere."
+    },
+    {
+      "id": "A02",
+      "category": "ambiguous",
+      "query": "¿Cuánto tarda el proceso?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "a02_c1",
+          "text": "La generación de respuestas tarda aproximadamente 4 segundos. La generación de embeddings tarda aproximadamente 0.2 segundos."
+        }
+      ],
+      "expected_status": "ambiguous",
+      "rationale": "La pregunta no identifica cuál de los dos procesos desea conocer."
+    },
+    {
+      "id": "A03",
+      "category": "ambiguous",
+      "query": "¿Cuál es el tamaño del modelo?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "a03_c1",
+          "text": "Qwen 2.5 1.5B ocupa 986 MB. Nomic Embed Text ocupa 274 MB."
+        }
+      ],
+      "expected_status": "ambiguous",
+      "rationale": "No se identifica a cuál modelo se refiere la pregunta."
+    },
+    {
+      "id": "A04",
+      "category": "ambiguous",
+      "query": "¿Dónde se guarda la información?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "a04_c1",
+          "text": "Los documentos originales se guardan en data/documents. Los fragmentos se almacenan en data/index y los vectores en data/vector_index."
+        }
+      ],
+      "expected_status": "ambiguous",
+      "rationale": "La pregunta no especifica qué tipo de información desea localizar."
+    },
+    {
+      "id": "P01",
+      "category": "partial",
+      "query": "¿Qué extensiones admite el sistema y cuál es el tamaño máximo de archivo?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "p01_c1",
+          "text": "El sistema admite documentos en formato TXT y Markdown codificados en UTF-8."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "Se conocen las extensiones, pero falta el tamaño máximo de archivo."
+    },
+    {
+      "id": "P02",
+      "category": "partial",
+      "query": "¿Cuál es el tamaño del lote de embeddings y cuánto dura el timeout?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "p02_c1",
+          "text": "La generación de embeddings procesa los textos en lotes de 16 elementos."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "Se conoce el tamaño del lote, pero no la duración del timeout."
+    },
+    {
+      "id": "P03",
+      "category": "partial",
+      "query": "¿Qué versión de Ollama se requiere y cuál es la versión mínima de Python?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "p03_c1",
+          "text": "El proyecto requiere Ollama 0.4.0 o superior para ejecutar los modelos locales."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "No se especifica la versión mínima de Python."
+    },
+    {
+      "id": "P04",
+      "category": "partial",
+      "query": "¿Cuántos fragmentos se generan por documento y qué solapamiento se utiliza?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "p04_c1",
+          "text": "El documento de ejemplo produce cuatro fragmentos durante el proceso de fragmentación."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "Se conoce la cantidad de fragmentos del ejemplo, pero no el solapamiento configurado."
+    },
+    {
+      "id": "C01",
+      "category": "contradictory",
+      "query": "¿Cuál es el tamaño de fragmentación configurado?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c01_c1",
+          "text": "La configuración vigente establece una ventana de fragmentación de 400 palabras."
+        },
+        {
+          "chunk_id": "c01_c2",
+          "text": "La configuración vigente establece una ventana de fragmentación de 500 palabras."
+        }
+      ],
+      "expected_status": "contradictory",
+      "rationale": "Dos fragmentos atribuyen valores incompatibles a la misma configuración vigente."
+    },
+    {
+      "id": "C02",
+      "category": "contradictory",
+      "query": "¿Qué dimensión tienen los embeddings?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c02_c1",
+          "text": "El modelo configurado genera embeddings de 768 dimensiones."
+        },
+        {
+          "chunk_id": "c02_c2",
+          "text": "El modelo configurado genera embeddings de 384 dimensiones."
+        }
+      ],
+      "expected_status": "contradictory",
+      "rationale": "Los fragmentos presentan dimensiones incompatibles para el mismo modelo configurado."
+    },
+    {
+      "id": "C03",
+      "category": "contradictory",
+      "query": "¿Cuál es el timeout configurado para Ollama?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c03_c1",
+          "text": "El timeout configurado para las solicitudes a Ollama es de 30 segundos."
+        },
+        {
+          "chunk_id": "c03_c2",
+          "text": "El timeout configurado para las solicitudes a Ollama es de 60 segundos."
+        }
+      ],
+      "expected_status": "contradictory",
+      "rationale": "Los fragmentos declaran dos valores distintos para el mismo parámetro."
+    },
+    {
+      "id": "C04",
+      "category": "contradictory",
+      "query": "¿Cuántos documentos contiene el índice actual?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "c04_c1",
+          "text": "El índice actual contiene exactamente 10 documentos."
+        },
+        {
+          "chunk_id": "c04_c2",
+          "text": "El índice actual contiene exactamente 12 documentos."
+        }
+      ],
+      "expected_status": "contradictory",
+      "rationale": "Los fragmentos ofrecen cantidades incompatibles para el mismo índice actual."
+    },
+    {
+      "id": "T01",
+      "category": "topical_without_answer",
+      "query": "¿Cómo se autentican las solicitudes a Ollama?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "t01_c1",
+          "text": "Para generar texto se envía una solicitud HTTP POST al endpoint /api/generate de Ollama."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "El fragmento describe el envío de solicitudes, pero no explica autenticación."
+    },
+    {
+      "id": "T02",
+      "category": "topical_without_answer",
+      "query": "¿Cómo se cifran los embeddings almacenados?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "t02_c1",
+          "text": "El modelo Nomic Embed Text convierte los textos en vectores numéricos que representan su contenido semántico."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "El fragmento describe la generación de embeddings, no su cifrado."
+    },
+    {
+      "id": "T03",
+      "category": "topical_without_answer",
+      "query": "¿Durante cuánto tiempo se conservan los documentos?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "t03_c1",
+          "text": "Los documentos se fragmentan en unidades de texto y cada fragmento conserva información sobre su procedencia."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "La procedencia documental no permite determinar el período de conservación."
+    },
+    {
+      "id": "T04",
+      "category": "topical_without_answer",
+      "query": "¿Cada cuánto tiempo se realizan copias de seguridad?",
+      "retrieved_chunks": [
+        {
+          "chunk_id": "t04_c1",
+          "text": "El índice documental se persiste mediante archivos JSONL y un manifiesto que contiene metadatos y hashes de verificación."
+        }
+      ],
+      "expected_status": "insufficient",
+      "rationale": "La persistencia y verificación de integridad no especifican una política de copias de seguridad."
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "evaluation": "Evidence Validator",
+  "timestamp": "2026-11-16T02:13:09.783532+00:00",
+  "dataset": "evidence_dataset.json",
+  "model": "qwen2.5:1.5b",
+  "metrics": {
+    "total_cases": 24,
+    "correct_cases": 10,
+    "incorrect_cases": 14,
+    "global_accuracy": 0.4167,
+    "sufficient_precision": 0.25,
+    "correct_abstention_rate": 0.4,
+    "average_time_seconds": 14.761,
+    "minimum_time_seconds": 4.423,
+    "maximum_time_seconds": 22.898,
+    "accuracy_by_category": {
+      "sufficient": {
+        "total": 4,
+        "correct": 4,
+        "accuracy": 1.0
+      },
+      "insufficient": {
+        "total": 4,
+        "correct": 3,
+        "accuracy": 0.75
+      },
+      "ambiguous": {
+        "total": 4,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "partial": {
+        "total": 4,
+        "correct": 1,
+        "accuracy": 0.25
+      },
+      "contradictory": {
+        "total": 4,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      "topical_without_answer": {
+        "total": 4,
+        "correct": 2,
+        "accuracy": 0.5
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "E01",
+      "category": "sufficient",
+      "query": "¿Qué endpoint permite generar texto con Ollama?",
+      "expected_status": "sufficient",
+      "actual_status": "sufficient",
+      "correct": true,
+      "elapsed_seconds": 22.898,
+      "reason": "El fragmento proporcionado contiene una cita textual exacta que respalda la respuesta.",
+      "evidence": [
+        {
+          "chunk_id": "e01_c1",
+          "quote": "El servidor Ollama expone el endpoint /api/generate para recibir solicitudes de generación de texto.",
+          "supports": "La cita textual exacta del fragmento original respalda la respuesta de que el endpoint /api/generate permite generar texto con Ollama."
+        }
+      ],
+      "error": null,
+      "rationale": "El fragmento identifica explícitamente el endpoint de generación."
+    },
+    {
+      "id": "E02",
+      "category": "sufficient",
+      "query": "¿Qué modelo se utiliza para generar embeddings?",
+      "expected_status": "sufficient",
+      "actual_status": "sufficient",
+      "correct": true,
+      "elapsed_seconds": 12.262,
+      "reason": "La evidencia proporcionada menciona claramente que el sistema utiliza el modelo nomic-embed-text para generar embeddings.",
+      "evidence": [
+        {
+          "chunk_id": "e02_c1",
+          "quote": "El sistema utiliza el modelo nomic-embed-text para generar representaciones vectoriales de los textos.",
+          "supports": "La cita textual exacta del fragmento original demuestra claramente que el sistema utiliza el modelo nomic-embed-text para generar embeddings."
+        }
+      ],
+      "error": null,
+      "rationale": "El modelo utilizado está identificado explícitamente."
+    },
+    {
+      "id": "E03",
+      "category": "sufficient",
+      "query": "¿Qué dimensión tienen los embeddings generados?",
+      "expected_status": "sufficient",
+      "actual_status": "sufficient",
+      "correct": true,
+      "elapsed_seconds": 12.062,
+      "reason": "La evidencia proporcionada especifica claramente la dimensión de los embeddings generados.",
+      "evidence": [
+        {
+          "chunk_id": "e03_c1",
+          "quote": "El modelo de embeddings genera vectores de 768 dimensiones.",
+          "supports": "La evidencia documental proporcionada especifica claramente la dimensión de los embeddings generados, que es 768 dimensiones."
+        }
+      ],
+      "error": null,
+      "rationale": "La dimensión está indicada directamente."
+    },
+    {
+      "id": "E04",
+      "category": "sufficient",
+      "query": "¿En qué formato se almacenan los fragmentos?",
+      "expected_status": "sufficient",
+      "actual_status": "sufficient",
+      "correct": true,
+      "elapsed_seconds": 12.167,
+      "reason": "La evidencia documental proporcionada respalda la respuesta.",
+      "evidence": [
+        {
+          "chunk_id": "e04_c1",
+          "quote": "Los fragmentos documentales se almacenan en archivos JSONL, con un registro por línea.",
+          "supports": "Esta cita textual exacta del fragmento original respalda la respuesta, indicando que los fragmentos se almacenan en archivos JSONL, con un registro por línea."
+        }
+      ],
+      "error": null,
+      "rationale": "El formato de almacenamiento está especificado."
+    },
+    {
+      "id": "I01",
+      "category": "insufficient",
+      "query": "¿Cuál es el límite de solicitudes por minuto de Ollama?",
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "correct": true,
+      "elapsed_seconds": 5.72,
+      "reason": "El modelo declaró evidencia suficiente sin citar fragmentos.",
+      "evidence": [],
+      "error": null,
+      "rationale": "Los fragmentos no especifican límites de solicitudes."
+    },
+    {
+      "id": "I02",
+      "category": "insufficient",
+      "query": "¿Qué versiones de Windows son compatibles con el sistema?",
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "correct": true,
+      "elapsed_seconds": 4.423,
+      "reason": "El modelo declaró evidencia suficiente sin citar fragmentos.",
+      "evidence": [],
+      "error": null,
+      "rationale": "No se mencionan versiones compatibles de Windows."
+    },
+    {
+      "id": "I03",
+      "category": "insufficient",
+      "query": "¿Cuál es el tamaño máximo permitido para un documento?",
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "correct": true,
+      "elapsed_seconds": 13.661,
+      "reason": "La evidencia no superó la verificación semántica: La cita proporcionada no respalda directamente la pregunta sobre el tamaño máximo permitido para un documento. La cita sugiere que el sistema puede dividir documentos en fragmentos de tamaño configurable, pero no menciona ningún límite máximo.",
+      "evidence": [],
+      "error": null,
+      "rationale": "El tamaño de los fragmentos no determina el tamaño máximo del documento."
+    },
+    {
+      "id": "I04",
+      "category": "insufficient",
+      "query": "¿Qué mecanismo de autenticación utiliza la API?",
+      "expected_status": "insufficient",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 15.826,
+      "reason": "La evidencia documental proporcionada, que indica que la API local permite enviar solicitudes HTTP a los endpoints de Ollama, es suficiente para responder la pregunta sobre qué mecanismo de autenticación utiliza la API.",
+      "evidence": [
+        {
+          "chunk_id": "i04_c1",
+          "quote": "La API local permite enviar solicitudes HTTP a los endpoints de Ollama.",
+          "supports": "Esta evidencia documental demuestra que la API local utiliza HTTP para comunicarse con los endpoints de Ollama, lo que implica la utilización de un mecanismo de autenticación para identificar y autorizar las solicitudes."
+        }
+      ],
+      "error": null,
+      "rationale": "No se describe ningún mecanismo de autenticación."
+    },
+    {
+      "id": "A01",
+      "category": "ambiguous",
+      "query": "¿Qué modelo utiliza el sistema?",
+      "expected_status": "ambiguous",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 13.397,
+      "reason": "El fragmento proporcionado contiene la información necesaria para responder a la pregunta. Qwen 2.5 1.5B es el modelo utilizado por el sistema para generar respuestas.",
+      "evidence": [
+        {
+          "chunk_id": "a01_c1",
+          "quote": "Qwen 2.5 1.5B se utiliza para generar respuestas. Nomic Embed Text se utiliza para generar embeddings.",
+          "supports": "La cita textual exacta del fragmento original indica que Qwen 2.5 1.5B es el modelo utilizado por el sistema para generar respuestas."
+        }
+      ],
+      "error": null,
+      "rationale": "Hay dos modelos y la pregunta no especifica a cuál componente se refiere."
+    },
+    {
+      "id": "A02",
+      "category": "ambiguous",
+      "query": "¿Cuánto tarda el proceso?",
+      "expected_status": "ambiguous",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 13.687,
+      "reason": "La evidencia documental proporcionada demuestra claramente que la generación de respuestas tarda aproximadamente 4 segundos.",
+      "evidence": [
+        {
+          "chunk_id": "a02_c1",
+          "quote": "La generación de respuestas tarda aproximadamente 4 segundos.",
+          "supports": "La evidencia documental proporcionada especifica que la generación de respuestas tarda aproximadamente 4 segundos, lo que es suficiente para responder la pregunta del usuario."
+        }
+      ],
+      "error": null,
+      "rationale": "La pregunta no identifica cuál de los dos procesos desea conocer."
+    },
+    {
+      "id": "A03",
+      "category": "ambiguous",
+      "query": "¿Cuál es el tamaño del modelo?",
+      "expected_status": "ambiguous",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 16.349,
+      "reason": "La evidencia proporcionada muestra el tamaño del modelo Qwen 2.5, que es 986 MB, lo cual es suficiente para responder la pregunta.",
+      "evidence": [
+        {
+          "chunk_id": "a03_c1",
+          "quote": "Qwen 2.5 1.5B ocupa 986 MB.",
+          "supports": "La cita proporcionada especifica el tamaño del modelo Qwen 2.5, que es 986 MB, lo cual es suficiente para responder la pregunta."
+        }
+      ],
+      "error": null,
+      "rationale": "No se identifica a cuál modelo se refiere la pregunta."
+    },
+    {
+      "id": "A04",
+      "category": "ambiguous",
+      "query": "¿Dónde se guarda la información?",
+      "expected_status": "ambiguous",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 18.882,
+      "reason": "La información proporcionada en el fragmento documental es suficiente para responder la pregunta. Los documentos originales se almacenan en 'data/documents', mientras que los fragmentos se almacenan en 'data/index' y los vectores en 'data/vector_index'. Esto demuestra que la información se almacena en un directorio llamado 'data' y que los fragmentos se almacenan en un subdirectorio llamado 'index'.",
+      "evidence": [
+        {
+          "chunk_id": "a04_c1",
+          "quote": "Los documentos originales se guardan en data/documents. Los fragmentos se almacenan en data/index y los vectores en data/vector_index.",
+          "supports": "La cita proporcionada explica claramente la ubicación de los documentos originales y los fragmentos, respaldando la respuesta."
+        }
+      ],
+      "error": null,
+      "rationale": "La pregunta no especifica qué tipo de información desea localizar."
+    },
+    {
+      "id": "P01",
+      "category": "partial",
+      "query": "¿Qué extensiones admite el sistema y cuál es el tamaño máximo de archivo?",
+      "expected_status": "insufficient",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 17.538,
+      "reason": "La evidencia documental proporcionada menciona que el sistema admite documentos en formato TXT y Markdown codificados en UTF-8, lo que es suficiente para responder la pregunta.",
+      "evidence": [
+        {
+          "chunk_id": "p01_c1",
+          "quote": "El sistema admite documentos en formato TXT y Markdown codificados en UTF-8.",
+          "supports": "La evidencia documental proporcionada especifica que el sistema admite documentos en formato TXT y Markdown codificados en UTF-8, lo que es suficiente para responder la pregunta."
+        }
+      ],
+      "error": null,
+      "rationale": "Se conocen las extensiones, pero falta el tamaño máximo de archivo."
+    },
+    {
+      "id": "P02",
+      "category": "partial",
+      "query": "¿Cuál es el tamaño del lote de embeddings y cuánto dura el timeout?",
+      "expected_status": "insufficient",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 17.512,
+      "reason": "La evidencia documental proporcionada menciona claramente que la generación de embeddings procesa los textos en lotes de 16 elementos.",
+      "evidence": [
+        {
+          "chunk_id": "p02_c1",
+          "quote": "La generación de embeddings procesa los textos en lotes de 16 elementos.",
+          "supports": "La evidencia documental proporcionada especifica que la generación de embeddings utiliza lotes de 16 elementos, lo que es suficiente para responder la pregunta."
+        }
+      ],
+      "error": null,
+      "rationale": "Se conoce el tamaño del lote, pero no la duración del timeout."
+    },
+    {
+      "id": "P03",
+      "category": "partial",
+      "query": "¿Qué versión de Ollama se requiere y cuál es la versión mínima de Python?",
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "correct": true,
+      "elapsed_seconds": 17.253,
+      "reason": "La evidencia no superó la verificación semántica: La cita proporcionada no respalda directamente la versión mínima de Python requerida. La cita se refiere a la versión mínima de Ollama, pero no especifica la versión mínima de Python necesaria para ejecutar los modelos locales.",
+      "evidence": [],
+      "error": null,
+      "rationale": "No se especifica la versión mínima de Python."
+    },
+    {
+      "id": "P04",
+      "category": "partial",
+      "query": "¿Cuántos fragmentos se generan por documento y qué solapamiento se utiliza?",
+      "expected_status": "insufficient",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 16.186,
+      "reason": "La evidencia documental proporcionada especifica claramente que el documento de ejemplo genera cuatro fragmentos durante el proceso de fragmentación.",
+      "evidence": [
+        {
+          "chunk_id": "p04_c1",
+          "quote": "El documento de ejemplo produce cuatro fragmentos durante el proceso de fragmentación.",
+          "supports": "La cita textual exacta del fragmento original especifica claramente que el documento de ejemplo genera cuatro fragmentos durante el proceso de fragmentación."
+        }
+      ],
+      "error": null,
+      "rationale": "Se conoce la cantidad de fragmentos del ejemplo, pero no el solapamiento configurado."
+    },
+    {
+      "id": "C01",
+      "category": "contradictory",
+      "query": "¿Cuál es el tamaño de fragmentación configurado?",
+      "expected_status": "contradictory",
+      "actual_status": "insufficient",
+      "correct": false,
+      "elapsed_seconds": 21.53,
+      "reason": "La evidencia no superó la verificación semántica: La cita proporcionada no respalda directamente la pregunta sobre el tamaño de fragmentación configurado. Ambas citas proporcionan opciones específicas sobre el tamaño de fragmentación configurado, pero no especifican el tamaño de fragmentación configurado en particular.",
+      "evidence": [],
+      "error": null,
+      "rationale": "Dos fragmentos atribuyen valores incompatibles a la misma configuración vigente."
+    },
+    {
+      "id": "C02",
+      "category": "contradictory",
+      "query": "¿Qué dimensión tienen los embeddings?",
+      "expected_status": "contradictory",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 13.986,
+      "reason": "La evidencia documental proporcionada proporciona la dimensión de los embeddings, que es 768 dimensiones.",
+      "evidence": [
+        {
+          "chunk_id": "c02_c1",
+          "quote": "El modelo configurado genera embeddings de 768 dimensiones.",
+          "supports": "La cita textual exacta del fragmento original demuestra la dimensión de los embeddings."
+        }
+      ],
+      "error": null,
+      "rationale": "Los fragmentos presentan dimensiones incompatibles para el mismo modelo configurado."
+    },
+    {
+      "id": "C03",
+      "category": "contradictory",
+      "query": "¿Cuál es el timeout configurado para Ollama?",
+      "expected_status": "contradictory",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 14.771,
+      "reason": "La evidencia documental proporcionada muestra claramente que el timeout configurado para Ollama es de 30 segundos.",
+      "evidence": [
+        {
+          "chunk_id": "c03_c1",
+          "quote": "El timeout configurado para las solicitudes a Ollama es de 30 segundos.",
+          "supports": "Esta cita textual exacta del fragmento original respalda directamente la respuesta."
+        }
+      ],
+      "error": null,
+      "rationale": "Los fragmentos declaran dos valores distintos para el mismo parámetro."
+    },
+    {
+      "id": "C04",
+      "category": "contradictory",
+      "query": "¿Cuántos documentos contiene el índice actual?",
+      "expected_status": "contradictory",
+      "actual_status": "insufficient",
+      "correct": false,
+      "elapsed_seconds": 16.635,
+      "reason": "La evidencia no superó la verificación semántica: La cita proporcionada no respalda la información necesaria para responder la pregunta. La cita textual proporcionada indica que el índice actual contiene exactamente 10 documentos, mientras que la pregunta solicita información sobre el número de documentos en el índice actual, que es 12.",
+      "evidence": [],
+      "error": null,
+      "rationale": "Los fragmentos ofrecen cantidades incompatibles para el mismo índice actual."
+    },
+    {
+      "id": "T01",
+      "category": "topical_without_answer",
+      "query": "¿Cómo se autentican las solicitudes a Ollama?",
+      "expected_status": "insufficient",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 16.2,
+      "reason": "La evidencia documental proporcionada es suficiente para responder la pregunta. La solicitud a Ollama se autentican mediante la solicitud HTTP POST al endpoint /api/generate.",
+      "evidence": [
+        {
+          "chunk_id": "t01_c1",
+          "quote": "Para generar texto se envía una solicitud HTTP POST al endpoint /api/generate de Ollama.",
+          "supports": "Esta cita textual exacta del fragmento original demuestra claramente cómo se autentican las solicitudes a Ollama."
+        }
+      ],
+      "error": null,
+      "rationale": "El fragmento describe el envío de solicitudes, pero no explica autenticación."
+    },
+    {
+      "id": "T02",
+      "category": "topical_without_answer",
+      "query": "¿Cómo se cifran los embeddings almacenados?",
+      "expected_status": "insufficient",
+      "actual_status": "sufficient",
+      "correct": false,
+      "elapsed_seconds": 17.448,
+      "reason": "La evidencia documental proporcionada menciona que el modelo Nomic Embed Text convierte los textos en vectores numéricos que representan su contenido semántico, lo que es suficiente para responder la pregunta sobre cómo se cifran los embeddings almacenados.",
+      "evidence": [
+        {
+          "chunk_id": "t02_c1",
+          "quote": "El modelo Nomic Embed Text convierte los textos en vectores numéricos que representan su contenido semántico.",
+          "supports": "La cita proporcionada explica claramente cómo los embeddings se cifran, convirtiendo los textos en vectores numéricos que representan su contenido semántico."
+        }
+      ],
+      "error": null,
+      "rationale": "El fragmento describe la generación de embeddings, no su cifrado."
+    },
+    {
+      "id": "T03",
+      "category": "topical_without_answer",
+      "query": "¿Durante cuánto tiempo se conservan los documentos?",
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "correct": true,
+      "elapsed_seconds": 18.254,
+      "reason": "La evidencia no superó la verificación semántica: La cita proporcionada no respalda directamente la pregunta sobre cuánto tiempo se conservan los documentos. La cita sugiere que los documentos se conservan en unidades de texto, pero no especifica cuánto tiempo esto ocurre.",
+      "evidence": [],
+      "error": null,
+      "rationale": "La procedencia documental no permite determinar el período de conservación."
+    },
+    {
+      "id": "T04",
+      "category": "topical_without_answer",
+      "query": "¿Cada cuánto tiempo se realizan copias de seguridad?",
+      "expected_status": "insufficient",
+      "actual_status": "insufficient",
+      "correct": true,
+      "elapsed_seconds": 5.614,
+      "reason": "El modelo declaró evidencia suficiente sin citar fragmentos.",
+      "evidence": [],
+      "error": null,
+      "rationale": "La persistencia y verificación de integridad no especifican una política de copias de seguridad."
+    }
+  ]
+}
