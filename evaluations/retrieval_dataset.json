@@ -1,0 +1,78 @@
+{
+  "dataset_name": "retrieval_evaluation_v1",
+  "description": "Conjunto inicial de evaluación de recuperación semántica del AI Research Assistant.",
+  "corpus": {
+    "index_directory": "data/index",
+    "vector_directory": "data/vector_index",
+    "document": "documentacion_demo.md",
+    "document_id": "doc_f278e8ed0b4eeea62e89"
+  },
+  "queries": [
+    {
+      "id": "P1",
+      "question": "¿En qué dirección HTTP está disponible Ollama?",
+      "type": "positive",
+      "relevant_chunks": [
+        "chk_a570b8ee9058634d74cf1018"
+      ]
+    },
+    {
+      "id": "P2",
+      "question": "¿Qué endpoint permite generar texto?",
+      "type": "positive",
+      "relevant_chunks": [
+        "chk_8128873325794ecc6b9664a9"
+      ]
+    },
+    {
+      "id": "P3",
+      "question": "¿Qué endpoint permite obtener representaciones vectoriales?",
+      "type": "positive",
+      "relevant_chunks": [
+        "chk_8128873325794ecc6b9664a9"
+      ]
+    },
+    {
+      "id": "P4",
+      "question": "¿Qué información permite identificar el documento de origen de un fragmento?",
+      "type": "positive",
+      "relevant_chunks": [
+        "chk_e5d2e79207fab305429ac513",
+        "chk_dff8701d79c83dc09305f43e"
+      ]
+    },
+    {
+      "id": "P5",
+      "question": "¿Para qué sirven los offsets de caracteres?",
+      "type": "positive",
+      "relevant_chunks": [
+        "chk_dff8701d79c83dc09305f43e",
+        "chk_e5d2e79207fab305429ac513"
+      ]
+    },
+    {
+      "id": "N1",
+      "question": "¿Cómo se configura un router TP-Link?",
+      "type": "negative",
+      "relevant_chunks": []
+    },
+    {
+      "id": "N2",
+      "question": "¿Qué algoritmo utiliza Ollama para entrenar sus modelos?",
+      "type": "negative",
+      "relevant_chunks": []
+    },
+    {
+      "id": "N3",
+      "question": "¿Cómo instalar CUDA en Windows?",
+      "type": "negative",
+      "relevant_chunks": []
+    },
+    {
+      "id": "N4",
+      "question": "¿Qué sistema operativo necesita Ollama para ejecutarse?",
+      "type": "negative",
+      "relevant_chunks": []
+    }
+  ]
+}
